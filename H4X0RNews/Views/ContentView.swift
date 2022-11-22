@@ -15,10 +15,13 @@ struct ContentView: View {
         NavigationView{
             VStack {
                 List(networkManager.posts) { item in
-                    HStack {
-                        Text(String(item.points))
-                        Text(item.title)
+                    NavigationLink(destination: DetailView(url: item.url)) {
+                        HStack {
+                            Text(String(item.points))
+                            Text(item.title)
+                        }
                     }
+                    
                 }
             }
             .navigationTitle("H4X0R News")
